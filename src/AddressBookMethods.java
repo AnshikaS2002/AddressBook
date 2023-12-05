@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -82,13 +84,34 @@ public class AddressBookMethods {
         for (Map.Entry<String, AddressBook> entry : dataMap.entrySet()) {
             AddressBook contact = entry.getValue();
             System.out.println("First name : " + entry.getKey());
-            System.out.println("Last Name : " + contact.getLastName());
-            System.out.println("Address : " + contact.getAddress());
-            System.out.println("City : " + contact.getCity());
-            System.out.println("State : " + contact.getState());
-            System.out.println("Zip Code : " + contact.getZip());
-            System.out.println("Phone Number : " + contact.getPhoneNumber());
-            System.out.println("Email : " + contact.getEmail());
+            System.out.println("Last Name  : " + contact.getLastName());
+            System.out.println("Address    : " + contact.getAddress());
+            System.out.println("City       : " + contact.getCity());
+            System.out.println("State      : " + contact.getState());
+            System.out.println("Zip Code   : " + contact.getZip());
+            System.out.println("Phone Num  : " + contact.getPhoneNumber());
+            System.out.println("Email      : " + contact.getEmail());
+            System.out.println("");
         }
     }
+
+    void printAddressBookSortedByName() {
+        List<Map.Entry<String, AddressBook>> entryList = new ArrayList<>(dataMap.entrySet());
+
+        Collections.sort(entryList, Map.Entry.comparingByKey());
+
+        for (Map.Entry<String, AddressBook> entry : entryList) {
+            AddressBook contact = entry.getValue();
+            System.out.println("First name : " + entry.getKey());
+            System.out.println("Last Name  : " + contact.getLastName());
+            System.out.println("Address    : " + contact.getAddress());
+            System.out.println("City       : " + contact.getCity());
+            System.out.println("State      : " + contact.getState());
+            System.out.println("Zip Code   : " + contact.getZip());
+            System.out.println("Phone Num  : " + contact.getPhoneNumber());
+            System.out.println("Email      : " + contact.getEmail());
+            System.out.println("");
+        }
+    }
+
 }

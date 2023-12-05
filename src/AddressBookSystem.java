@@ -7,11 +7,20 @@ public class AddressBookSystem {
     public void addAddressBook() {
 
         while (true) {
-            System.out.println("Enter 1 add, 2 to edit, 3 to delete, 4 to print details, 5 to exit");
+            System.out.println("For adding details enter:   1");
+            System.out.println("For editing details enter:  2");
+            System.out.println("For deleting details enter: 3");
+            System.out.println("For printing address book enter:    4");
+            System.out.println("For printing address book sorted by name enter:  5");
+            System.out.println("To exit press :     0");
+
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
+                case 0:
+                    return;
+
                 case 1:
                     addressBookMethods.addDetails();
                     break;
@@ -29,7 +38,8 @@ public class AddressBookSystem {
                     break;
 
                 case 5:
-                    return;
+                    addressBookMethods.printAddressBookSortedByName();
+                    break;
 
                 default:
                     System.out.println("Invalid choice");

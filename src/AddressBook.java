@@ -56,13 +56,14 @@ public class AddressBook {
 
     public void printDetails() {
         System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Address: " + address);
-        System.out.println("City: " + city);
-        System.out.println("State: " + state);
-        System.out.println("Zip Code: " + zip);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("E-mail Address: " + email);
+        System.out.println("Last Name:  " + lastName);
+        System.out.println("Address:    " + address);
+        System.out.println("City:       " + city);
+        System.out.println("State:      " + state);
+        System.out.println("Zip Code:   " + zip);
+        System.out.println("Phone Num:  " + phoneNumber);
+        System.out.println("E-mail:     " + email);
+        System.out.println("");
 
     }
 }
