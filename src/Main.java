@@ -16,7 +16,9 @@ public class Main {
             System.out.println("Enter 1 to add a book");
             System.out.println("Enter 2 to print all books");
             System.out.println("Enter 3 to search persons by city");
-            System.out.println("Enter 4 to search branch by state");
+            System.out.println("Enter 4 to search personn by state");
+            System.out.println("Enter 5 to count contacts by city");
+            System.out.println("Enter 6 to count contacts by state");
 
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
@@ -25,6 +27,7 @@ public class Main {
             switch (option) {
                 case 0:
                     return;
+
                 case 1:
                     System.out.print("Enter address book name : ");
                     String addressBookName = scanner.nextLine();
@@ -53,6 +56,8 @@ public class Main {
                             cityMap.get(city).get(i).printDetails();
                             System.out.println("");
                         }
+                    } else {
+                        System.out.println("No contacts found from this city");
                     }
                     break;
 
@@ -64,6 +69,28 @@ public class Main {
                             stateMap.get(state).get(i).printDetails();
                             System.out.println("");
                         }
+                    } else {
+                        System.out.println("No contacts found from this state");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Enter city name : ");
+                    city = scanner.next();
+                    if (cityMap.containsKey(city)) {
+                        System.out.println("Number of contacts found : " + cityMap.get(city).size());
+                    } else {
+                        System.out.println("No contacts found from this city");
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Enter state name : ");
+                    state = scanner.next();
+                    if (stateMap.containsKey(state)) {
+                        System.out.println("Number of contacts found : " + stateMap.get(state).size());
+                    } else {
+                        System.out.println("No contacts found from this state");
                     }
                     break;
 
