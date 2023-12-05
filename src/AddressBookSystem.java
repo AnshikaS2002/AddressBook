@@ -7,12 +7,15 @@ public class AddressBookSystem {
     public void addAddressBook() {
 
         while (true) {
-            System.out.println("For adding details enter:   1");
-            System.out.println("For editing details enter:  2");
-            System.out.println("For deleting details enter: 3");
-            System.out.println("For printing address book enter:    4");
-            System.out.println("For printing address book sorted by name enter:  5");
-            System.out.println("To exit press :     0");
+            System.out.println("Enter [1] to add details");
+            System.out.println("Enter [2] to edit details");
+            System.out.println("Enter [3] to delete details");
+            System.out.println("Enter [4] to print details");
+            System.out.println("Enter [5] to print details sorted by name");
+            System.out.println("Enter [6] to print details sorted by city");
+            System.out.println("Enter [7] to print details sorted by state");
+            System.out.println("Enter [8] to print details sorted by zip code");
+            System.out.println("Enter [0] to exit the system");
 
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -39,6 +42,18 @@ public class AddressBookSystem {
 
                 case 5:
                     addressBookMethods.printAddressBookSortedByName();
+                    break;
+
+                case 6:
+                    addressBookMethods.printAddressBookSortedByCity();
+                    break;
+
+                case 7:
+                    addressBookMethods.printAddressBookSortedByState();
+                    break;
+
+                case 8:
+                    addressBookMethods.printAddressBookSortedByZipCode();
                     break;
 
                 default:

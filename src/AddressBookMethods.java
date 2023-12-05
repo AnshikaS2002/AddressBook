@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -112,6 +113,66 @@ public class AddressBookMethods {
             System.out.println("Email      : " + contact.getEmail());
             System.out.println("");
         }
+    }
+
+    void printAddressBookSortedByCity() {
+        List<Map.Entry<String, AddressBook>> entryList = new ArrayList<>(dataMap.entrySet());
+
+        Collections.sort(entryList, Comparator.comparing(entry -> entry.getValue().city));
+
+        for (Map.Entry<String, AddressBook> entry : entryList) {
+            AddressBook contact = entry.getValue();
+            System.out.println("First name : " + entry.getKey());
+            System.out.println("Last Name  : " + contact.getLastName());
+            System.out.println("Address    : " + contact.getAddress());
+            System.out.println("City       : " + contact.getCity());
+            System.out.println("State      : " + contact.getState());
+            System.out.println("Zip Code   : " + contact.getZip());
+            System.out.println("Phone Num  : " + contact.getPhoneNumber());
+            System.out.println("Email      : " + contact.getEmail());
+            System.out.println("");
+        }
+
+    }
+
+    void printAddressBookSortedByState() {
+        List<Map.Entry<String, AddressBook>> entryList = new ArrayList<>(dataMap.entrySet());
+
+        Collections.sort(entryList, Comparator.comparing(entry -> entry.getValue().state));
+
+        for (Map.Entry<String, AddressBook> entry : entryList) {
+            AddressBook contact = entry.getValue();
+            System.out.println("First name : " + entry.getKey());
+            System.out.println("Last Name  : " + contact.getLastName());
+            System.out.println("Address    : " + contact.getAddress());
+            System.out.println("City       : " + contact.getCity());
+            System.out.println("State      : " + contact.getState());
+            System.out.println("Zip Code   : " + contact.getZip());
+            System.out.println("Phone Num  : " + contact.getPhoneNumber());
+            System.out.println("Email      : " + contact.getEmail());
+            System.out.println("");
+        }
+
+    }
+
+    void printAddressBookSortedByZipCode() {
+        List<Map.Entry<String, AddressBook>> entryList = new ArrayList<>(dataMap.entrySet());
+
+        Collections.sort(entryList, Comparator.comparing(entry -> entry.getValue().zip));
+
+        for (Map.Entry<String, AddressBook> entry : entryList) {
+            AddressBook contact = entry.getValue();
+            System.out.println("First name : " + entry.getKey());
+            System.out.println("Last Name  : " + contact.getLastName());
+            System.out.println("Address    : " + contact.getAddress());
+            System.out.println("City       : " + contact.getCity());
+            System.out.println("State      : " + contact.getState());
+            System.out.println("Zip Code   : " + contact.getZip());
+            System.out.println("Phone Num  : " + contact.getPhoneNumber());
+            System.out.println("Email      : " + contact.getEmail());
+            System.out.println("");
+        }
+
     }
 
 }
