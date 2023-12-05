@@ -42,10 +42,16 @@ public class AddressBookMethods {
         AddressBook addressBook = new AddressBook(firstName, lastName, address, city, state, zipCode, phoneNumber,
                 email);
         dataMap.put(firstName, addressBook);
-        if(!(Main.cityMap.containsKey(city))) {
+
+        if (!(Main.cityMap.containsKey(city))) {
             Main.cityMap.put(city, new ArrayList<AddressBook>());
         }
         Main.cityMap.get(city).add(addressBook);
+
+        if (!Main.stateMap.containsKey(state)) {
+            Main.stateMap.put(state, new ArrayList<AddressBook>());
+        }
+        Main.stateMap.get(state).add(addressBook);
     }
 
     void editDetails() {

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Map<String, ArrayList<AddressBook>> cityMap = new HashMap<String, ArrayList<AddressBook>>();
+    public static Map<String, ArrayList<AddressBook>> stateMap = new HashMap<String, ArrayList<AddressBook>>();
 
     public static void main(String[] args) {
         System.out.println("Menu : ");
@@ -15,6 +16,7 @@ public class Main {
             System.out.println("Enter 1 to add a book");
             System.out.println("Enter 2 to print all books");
             System.out.println("Enter 3 to search persons by city");
+            System.out.println("Enter 4 to search branch by state");
 
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
@@ -49,6 +51,17 @@ public class Main {
                     if (cityMap.containsKey(city)) {
                         for (int i = 0; i < cityMap.get(city).size(); i++) {
                             cityMap.get(city).get(i).printDetails();
+                            System.out.println("");
+                        }
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Enter state name : ");
+                    String state = scanner.next();
+                    if (stateMap.containsKey(state)) {
+                        for (int i = 0; i < stateMap.get(state).size(); i++) {
+                            stateMap.get(state).get(i).printDetails();
                             System.out.println("");
                         }
                     }
