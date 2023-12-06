@@ -1,5 +1,6 @@
+import java.io.*;
 
-public class AddressBook {
+public class AddressBook implements Serializable {
     String firstName;
     String lastName;
     String address;

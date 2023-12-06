@@ -1,4 +1,13 @@
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -6,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 public class AddressBookMethods {
     Map<String, AddressBook> dataMap = new HashMap<String, AddressBook>();
@@ -173,6 +183,58 @@ public class AddressBookMethods {
             System.out.println("");
         }
 
+    }
+
+    public void writeToFile(String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (Map.Entry<String, AddressBook> entry : dataMap.entrySet()) {
+                AddressBook addressBook = entry.getValue();
+                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%n",
+                        entry.getKey(),
+                        addressBook.getFirstName(),
+                        addressBook.getLastName(),
+                        addressBook.getAddress(),
+                        addressBook.getCity(),
+                        addressBook.getState(),
+                        addressBook.getZip(),
+                        addressBook.getPhoneNumber(),
+                        addressBook.getEmail());
+                writer.write(line);
+            }
+            System.out.println("Data written to file successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readFromFile(String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 9) { // Assuming 8 fields in each line
+                    String key = parts[0];
+                    String firstName = parts[1];
+                    String lastName = parts[2];
+                    String address = parts[3];
+                    String city = parts[4];
+                    String state = parts[5];
+                    String zip = parts[6];
+                    String phoneNumber = parts[7];
+                    String email = parts[8];
+
+                    AddressBook addressBook = new AddressBook(firstName, lastName, address, city, state, zip,
+                            phoneNumber, email);
+                    dataMap.put(key, addressBook);
+                }
+            }
+
+            for (AddressBook addressBook : dataMap.values()) {
+                addressBook.printDetails();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

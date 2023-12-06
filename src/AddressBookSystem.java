@@ -15,6 +15,8 @@ public class AddressBookSystem {
             System.out.println("Enter [6] to print details sorted by city");
             System.out.println("Enter [7] to print details sorted by state");
             System.out.println("Enter [8] to print details sorted by zip code");
+            System.out.println("Enter [9] to add details to a file");
+            System.out.println("Enter [10] read details from the file");
             System.out.println("Enter [0] to exit the system");
 
             Scanner scanner = new Scanner(System.in);
@@ -54,6 +56,14 @@ public class AddressBookSystem {
 
                 case 8:
                     addressBookMethods.printAddressBookSortedByZipCode();
+                    break;
+
+                case 9:
+                    addressBookMethods.writeToFile("AddressBookFile.txt");
+                    break;
+
+                case 10:
+                    addressBookMethods.readFromFile("AddressBookFile.txt");
                     break;
 
                 default:
